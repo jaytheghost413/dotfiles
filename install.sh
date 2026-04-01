@@ -39,15 +39,8 @@ if ! command -v yay &> /dev/null; then
 fi
 
 echo "[2/5] Setting up Chaotic AUR..."
-if [ ! -f /etc/pacman.d/chaotic-mirrorlist ]; then
-    pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-    pacman-key --lsign-key 3056513887B78AEB
-    pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring-20230329-3-any.pkg.tar.zst'
-    pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist-20230329-3-any.pkg.tar.zst'
-fi
-
-if ! grep -q "chaotic-mirrorlist" /etc/pacman.conf; then
-    echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+if ! grep -q "chaotic-aur" /etc/pacman.conf; then
+    pacman -Sy --noconfirm chaotic-aur
 fi
 
 echo "[3/5] Installing packages..."
