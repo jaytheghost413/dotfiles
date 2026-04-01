@@ -90,6 +90,11 @@ if [ -d "$SCRIPT_DIR/Wallpapers" ]; then
     chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_USER_HOME/Pictures"
 fi
 
+if [ -d "$SCRIPT_DIR/.face" ]; then
+    cp -r "$SCRIPT_DIR/.face" "$ACTUAL_USER_HOME/"
+    chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_USER_HOME/.face"
+fi
+
 echo ""
 echo "Done! Rebooting in 10 seconds..."
 sleep 10
