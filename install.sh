@@ -84,6 +84,12 @@ if [ -f "$SCRIPT_DIR/.zshrc" ]; then
     chown "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_USER_HOME/.zshrc"
 fi
 
+if [ -d "$SCRIPT_DIR/Wallpapers" ]; then
+    mkdir -p "$ACTUAL_USER_HOME/Pictures"
+    cp -r "$SCRIPT_DIR/Wallpapers" "$ACTUAL_USER_HOME/Pictures/"
+    chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_USER_HOME/Pictures"
+fi
+
 echo ""
 echo "Done! Rebooting in 10 seconds..."
 sleep 10
