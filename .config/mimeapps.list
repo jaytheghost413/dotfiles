@@ -1,0 +1,5 @@
+
+[Default Applications]
+inode/directory=thunar.desktop
+application/x-gnome-saved-search=thunar.desktop
+x-scheme-handler/discord=vesktop.desktop

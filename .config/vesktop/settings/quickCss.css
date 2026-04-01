@@ -1,0 +1,97 @@
+/**
+ * Noctalia Material Discord
+ * Based on Material Discord fork for Noctalia Shell
+ * @author CapnKitten
+ */
+
+@import url("https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/source.css");
+@import url("https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css");
+
+.theme-dark {
+    --saturation-modifier: 0.31;
+    --lightness-modifier: 0.225;
+    --text-lightness-modifier: 1.0;
+}
+
+.theme-light {
+    --saturation-modifier: 0.74;
+    --lightness-modifier: 2.125;
+    --text-lightness-modifier: 1.0;
+}
+
+:root, .theme-dark, .theme-light {
+    --accent-hue: 357;
+    --accent-saturation: 60%;
+    --accent-lightness: 71%;
+    --accent-text-color: #251918;
+  
+    --app-bg: #291514;
+    --main-color: #291514;
+    --main-alt: #291514;
+    --server-color: #291514;
+    --status-picker-color: #452321;
+    --sidebar-panel-color: #452321;
+    --chat-color: #291514;
+    --tooltip-color: #291514;
+    --tooltip-text-color: #f3f2f2;
+  
+    --message-color: #452321;
+    --message-color-hover: #5a2f2d !important;
+    --message-color-alt: #f3f2f2;
+    --attachment-color: #251918;
+    --main-textarea-color: #e86963;
+    --main-textarea-button-color: #251918;
+    --main-textarea-color-alt: #e59f4d;
+    --main-textarea-border: #452321;
+  
+    --card-color-filled: #452321;
+    --card-color-hover: #251918;
+    --card-color-active: #251918;
+    --card-color-alt: #756160;
+    --card-color-alt-hover: #e59f4d;
+    --card-border-color: #452321;
+    --card-header-text-color: #f3f2f2;
+  
+    --switch-knob-color: #452321;
+    --switch-slider-color: #291514;
+  
+    --input-text-color: #f3f2f2;
+  
+    --app-watermark-one: "Noctalia";
+    --app-watermark-two: "Discord";
+  
+    --text-tertiary: #b6afaf !important;
+}
+
+/* Noctalia custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #291514;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e86963;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f37f79;
+}
+
+/* Brand color override */
+[class*="brand"] {
+    --brand-100: #e86963 !important;
+    --brand-200: #e86963 !important;
+    --brand-300: #e86963 !important;
+    --brand-360: #e86963 !important;
+    --brand-400: #e86963 !important;
+    --brand-500: #e86963 !important;
+    --brand-500: #e86963 !important;
+    --brand-600: #e86963 !important;
+    --brand-700: #e86963 !important;
+    --brand-800: #e86963 !important;
+    --brand-900: #e86963 !important;
+}

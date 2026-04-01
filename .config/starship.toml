@@ -1,0 +1,148 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# global format MUST come before any [table] headers
+
+format = """
+[█](fg:#872523)\
+$username\
+[█](bg:#452122 fg:#872523)\
+$directory\
+[](fg:#452122 bg:#f0eded)\
+$git_branch\
+$git_status\
+[](fg:#f0eded bg:#c85555)\
+$c\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+[](fg:#c85555)\
+$fill\
+[](fg:#756161)\
+$docker_context\
+[](fg:#291414 bg:#756161)\
+$time\
+[](fg:#291414)\
+"""
+
+[fill]
+symbol = " "
+style = "fg:#291414"
+
+[username]
+show_always = true
+style_user = "bg:#872523 fg:#ebe0e0"
+style_root = "bg:#872523 fg:#ebe0e0"
+format = '[$user ]($style)'
+
+[os]
+style = "bg:#872523 fg:#ebe0e0"
+disabled = true
+
+[directory]
+style = "bg:#452122 fg:#f3f2f2"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = ".../"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#f0eded fg:#291414"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#f0eded fg:#291414"
+format = '[$all_status$ahead_behind ]($style)'
+
+[c]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[cpp]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#c85555 fg:#f0eded"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#756161 fg:#f3f2f2"
+format = '[ $symbol $context ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#291414 fg:#b6afaf"
+format = '[ ♥ $time ]($style)'
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '

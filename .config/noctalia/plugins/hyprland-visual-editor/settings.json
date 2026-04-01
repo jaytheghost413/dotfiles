@@ -1,0 +1,9 @@
+{
+  "isSystemActive": true,
+  "borderSize": 3,
+  "overlayPath": "~/.cache/noctalia/HVE/overlay.conf",
+  "autoApply": true,
+  "activeAnimFile": "04_minimalismo_snappy.conf",
+  "activeBorderFile": "",
+  "activeShaderFile": ""
+}
