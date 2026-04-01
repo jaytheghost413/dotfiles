@@ -85,4 +85,6 @@ if [ -f "$SCRIPT_DIR/.zshrc" ]; then
 fi
 
 echo ""
-echo "Done! Please reboot or log out and back in for changes to take effect."
+echo "Done! Rebooting in 10 seconds..."
+sleep 10
+reboot
