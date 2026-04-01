@@ -27,7 +27,18 @@ ACTUAL_USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
 
 echo "Installing dotfiles for user: $ACTUAL_USER"
 
-echo "[1/4] Setting up Chaotic AUR..."
+echo "[1/5] Installing base-devel and yay..."
+pacman -S --needed --noconfirm git base-devel
+if ! command -v yay &> /dev/null; then
+    cd /tmp
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
+    cd /tmp
+    rm -rf yay
+fi
+
+echo "[2/5] Setting up Chaotic AUR..."
 if [ ! -f /etc/pacman.d/chaotic-mirrorlist ]; then
     pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
     pacman-key --lsign-key 3056513887B78AEB
@@ -39,7 +50,7 @@ if ! grep -q "chaotic-mirrorlist" /etc/pacman.conf; then
     echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
 fi
 
-echo "[2/4] Installing packages..."
+echo "[3/5] Installing packages..."
 PACKAGES_FILE="$SCRIPT_DIR/packages.txt"
 if [ -f "$PACKAGES_FILE" ]; then
     mapfile -t PACKAGES < <(pacman -Qsq | comm -12 - <(sort "$PACKAGES_FILE"))
@@ -48,7 +59,7 @@ if [ -f "$PACKAGES_FILE" ]; then
     fi
 fi
 
-echo "[3/4] Deploying configs..."
+echo "[4/5] Deploying configs..."
 CONFIG_SOURCE="$SCRIPT_DIR/.config"
 if [ -d "$CONFIG_SOURCE" ]; then
     for config_dir in "$CONFIG_SOURCE"/*; do
@@ -69,7 +80,7 @@ if [ -d "$CONFIG_SOURCE" ]; then
     done
 fi
 
-echo "[4/4] Symlinking user files..."
+echo "[5/5] Symlinking user files..."
 if [ -f "$SCRIPT_DIR/.bashrc" ]; then
     cp "$SCRIPT_DIR/.bashrc" "$ACTUAL_USER_HOME/.bashrc"
     chown "$ACTUAL_USER:$ACTUAL_USER" "$ACTUAL_USER_HOME/.bashrc"
